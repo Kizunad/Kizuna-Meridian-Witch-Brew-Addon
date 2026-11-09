@@ -1,0 +1,6 @@
+description = '行药诀纯数据 Fabric 包，无 Java 入口。'
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand version: project.version }
+    from(project(':shared').sourceSets.main.resources)
+}

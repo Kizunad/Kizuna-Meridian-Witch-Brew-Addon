@@ -1,0 +1,101 @@
+{
+  "cork": {
+    "subtitle": "subtitles.meridian_witch.cork",
+    "sounds": [
+      {
+        "name": "minecraft:block.bubble_column.bubble_pop",
+        "type": "event"
+      }
+    ]
+  },
+  "imbibe.sip": {
+    "subtitle": "subtitles.meridian_witch.imbibe.sip",
+    "sounds": [
+      {
+        "name": "minecraft:item.honey_bottle.drink",
+        "type": "event"
+      }
+    ]
+  },
+  "imbibe.stroke": {
+    "subtitle": "subtitles.meridian_witch.imbibe.stroke",
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_leather",
+        "type": "event"
+      }
+    ]
+  },
+  "anoint.pour": {
+    "subtitle": "subtitles.meridian_witch.anoint.pour",
+    "sounds": [
+      {
+        "name": "minecraft:item.bottle.empty",
+        "type": "event"
+      }
+    ]
+  },
+  "anoint.rub": {
+    "subtitle": "subtitles.meridian_witch.anoint.rub",
+    "sounds": [
+      {
+        "name": "minecraft:item.honeycomb.wax_on",
+        "type": "event"
+      }
+    ]
+  },
+  "anoint.pat": {
+    "subtitle": "subtitles.meridian_witch.anoint.pat",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.weak",
+        "type": "event"
+      }
+    ]
+  },
+  "lob_seed.shake": {
+    "subtitle": "subtitles.meridian_witch.lob_seed.shake",
+    "sounds": [
+      {
+        "name": "minecraft:item.bottle.fill",
+        "type": "event"
+      }
+    ]
+  },
+  "lob_seed.throw": {
+    "subtitle": "subtitles.meridian_witch.lob_seed.throw",
+    "sounds": [
+      {
+        "name": "minecraft:entity.splash_potion.throw",
+        "type": "event"
+      }
+    ]
+  },
+  "fling_seed.splash": {
+    "subtitle": "subtitles.meridian_witch.fling_seed.splash",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.splash",
+        "type": "event"
+      }
+    ]
+  },
+  "spray_trigger.sip": {
+    "subtitle": "subtitles.meridian_witch.spray_trigger.sip",
+    "sounds": [
+      {
+        "name": "minecraft:item.honey_bottle.drink",
+        "type": "event"
+      }
+    ]
+  },
+  "spray_trigger.spit": {
+    "subtitle": "subtitles.meridian_witch.spray_trigger.spit",
+    "sounds": [
+      {
+        "name": "minecraft:entity.llama.spit",
+        "type": "event"
+      }
+    ]
+  }
+}

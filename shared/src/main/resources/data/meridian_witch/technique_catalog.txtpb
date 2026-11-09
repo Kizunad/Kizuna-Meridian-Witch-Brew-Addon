@@ -1,0 +1,653 @@
+schema_version: 1
+namespace: "meridian_witch"
+binding_templates { id: "human:adult" version: 1 }
+books { id: "meridian_witch:brew_arts" display_name: "行药诀" }
+volumes {
+  id: "meridian_witch:guard"
+  book_id: "meridian_witch:brew_arts"
+  display_name: "养"
+  techniques { id: "meridian_witch:imbibe" version: 1 }
+  techniques { id: "meridian_witch:anoint" version: 1 }
+}
+volumes {
+  id: "meridian_witch:seed"
+  book_id: "meridian_witch:brew_arts"
+  display_name: "引"
+  prerequisite_volume_ids: "meridian_witch:guard"
+  techniques { id: "meridian_witch:lob_seed" version: 1 }
+  techniques { id: "meridian_witch:fling_seed" version: 1 }
+  techniques { id: "meridian_witch:spray_trigger" version: 1 }
+}
+definitions {
+  id: "meridian_witch:imbibe"
+  version: 1
+  category: RECOVERY
+  minimum_realm: WANDERING_QI
+  movement_speed_multiplier: 0.4
+  brew_item {
+    kind_ids: "meridian_brewing:bitter_yellow"
+    kind_ids: "meridian_brewing:qi_gather"
+    physical_uses: DRINK
+    empty_off_hand: false
+  }
+  slots {
+    id: "meridians"
+    module: MERIDIAN
+    tags: "human:foot_meridian"
+    minimum_count: 1
+    maximum_count: 6
+    require_opened: true
+  }
+  cost {
+    qi {
+      slot_id: "meridians"
+      matching: ANY_ATTRIBUTE_AT_LEAST_PHASE
+      phase: FREE
+      amount { value: 0.3 unit: QI }
+      distribution: EVEN
+    }
+  }
+  phases {
+    warmup_millis: 3200
+    active_millis: 0
+    recovery_millis: 1800
+    interruptible_by_damage: true
+  }
+  cooldown_millis: 15000
+  effects {
+    at_millis: 300
+    sound { sound_id: "meridian_witch:cork"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 1.8 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 900
+    sound { sound_id: "meridian_witch:imbibe.sip"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 1.2 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 1500
+    sound { sound_id: "meridian_witch:imbibe.sip"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 1.2 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 2100
+    sound { sound_id: "meridian_witch:imbibe.sip"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 1.2 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 2400
+    sound { sound_id: "meridian_witch:imbibe.stroke"
+      volume { value: 0.3 unit: RATIO }
+      pitch { value: 1.4 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 2850
+    sound { sound_id: "meridian_witch:imbibe.stroke"
+      volume { value: 0.3 unit: RATIO }
+      pitch { value: 1.4 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 3200
+    use_brew { processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      brew_kind_ids: "meridian_brewing:qi_gather"
+      use_methods: DRINK
+      technique {
+        method: DRINK
+        strength_multiplier: 1
+        duration_multiplier: 1.5
+        strength_quality_steps: 1
+        maximum_quality_multiplier: 1.2
+        nausea_multiplier: 0.5
+        residue_dose: 0
+      } }
+  }
+  presentation { display_name: "服药" description: "以炁行药，药力循身而行。" }
+}
+definitions {
+  id: "meridian_witch:anoint"
+  version: 1
+  category: RECOVERY
+  minimum_realm: WANDERING_QI
+  movement_speed_multiplier: 0.4
+  brew_item {
+    kind_ids: "meridian_brewing:bitter_yellow"
+    physical_uses: DRINK
+    empty_off_hand: true
+  }
+  slots {
+    id: "meridians"
+    module: MERIDIAN
+    tags: "human:hand_meridian"
+    minimum_count: 1
+    maximum_count: 6
+    require_opened: true
+  }
+  slots {
+    id: "muscles"
+    module: TISSUE
+    tags: "human:arm_muscle"
+    minimum_count: 1
+    maximum_count: 16
+  }
+  cost {
+    qi {
+      slot_id: "meridians"
+      matching: ANY_ATTRIBUTE_AT_LEAST_PHASE
+      phase: FREE
+      amount { value: 0.3 unit: QI }
+      distribution: EVEN
+    }
+  }
+  phases {
+    warmup_millis: 2600
+    active_millis: 0
+    recovery_millis: 1400
+    interruptible_by_damage: true
+  }
+  cooldown_millis: 15000
+  effects {
+    at_millis: 0
+    work {
+      slot_id: "muscles"
+      force { value: 0 unit: NEWTON }
+      power { value: 10 unit: WATT }
+      duration { value: 1.5 unit: SECOND }
+    }
+  }
+  effects {
+    at_millis: 250
+    sound { sound_id: "meridian_witch:cork"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 1.8 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 700
+    sound { sound_id: "meridian_witch:anoint.pour"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 1.3 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 1200
+    use_brew {
+      processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      use_methods: DRINK
+      technique {
+        method: ANOINT
+        strength_multiplier: 1.5
+        duration_multiplier: 1
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 0
+        residue_dose: 0
+      }
+      preparation_sound { sound_id: "meridian_witch:anoint.rub"
+        volume { value: 0.5 unit: RATIO }
+        pitch { value: 0.9 unit: RATIO }
+        anchor: CASTER }
+      sound_group: ARMS
+    }
+  }
+  effects {
+    at_millis: 1250
+    use_brew {
+      processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      use_methods: DRINK
+      technique {
+        method: ANOINT
+        strength_multiplier: 1.5
+        duration_multiplier: 1
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 0
+        residue_dose: 0
+      }
+      preparation_sound { sound_id: "meridian_witch:anoint.rub"
+        volume { value: 0.5 unit: RATIO }
+        pitch { value: 1.1 unit: RATIO }
+        anchor: CASTER }
+      sound_group: LEGS
+    }
+  }
+  effects {
+    at_millis: 1550
+    use_brew {
+      processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      use_methods: DRINK
+      technique {
+        method: ANOINT
+        strength_multiplier: 1.5
+        duration_multiplier: 1
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 0
+        residue_dose: 0
+      }
+      preparation_sound { sound_id: "meridian_witch:anoint.rub"
+        volume { value: 0.5 unit: RATIO }
+        pitch { value: 1.1 unit: RATIO }
+        anchor: CASTER }
+      sound_group: LEGS
+    }
+  }
+  effects {
+    at_millis: 1900
+    use_brew {
+      processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      use_methods: DRINK
+      technique {
+        method: ANOINT
+        strength_multiplier: 1.5
+        duration_multiplier: 1
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 0
+        residue_dose: 0
+      }
+      preparation_sound { sound_id: "meridian_witch:anoint.rub"
+        volume { value: 0.5 unit: RATIO }
+        pitch { value: 1.1 unit: RATIO }
+        anchor: CASTER }
+      sound_group: LEGS
+    }
+  }
+  effects {
+    at_millis: 2100
+    use_brew {
+      processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      use_methods: DRINK
+      technique {
+        method: ANOINT
+        strength_multiplier: 1.5
+        duration_multiplier: 1
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 0
+        residue_dose: 0
+      }
+      preparation_sound { sound_id: "meridian_witch:anoint.rub"
+        volume { value: 0.5 unit: RATIO }
+        pitch { value: 0.9 unit: RATIO }
+        anchor: CASTER }
+      sound_group: ARMS
+    }
+  }
+  effects {
+    at_millis: 2200
+    use_brew {
+      processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      use_methods: DRINK
+      technique {
+        method: ANOINT
+        strength_multiplier: 1.5
+        duration_multiplier: 1
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 0
+        residue_dose: 0
+      }
+      preparation_sound { sound_id: "meridian_witch:anoint.rub"
+        volume { value: 0.5 unit: RATIO }
+        pitch { value: 1.1 unit: RATIO }
+        anchor: CASTER }
+      sound_group: LEGS
+    }
+  }
+  effects {
+    at_millis: 2550
+    use_brew {
+      processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      use_methods: DRINK
+      technique {
+        method: ANOINT
+        strength_multiplier: 1.5
+        duration_multiplier: 1
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 0
+        residue_dose: 0
+      }
+      preparation_sound { sound_id: "meridian_witch:anoint.pat"
+        volume { value: 0.4 unit: RATIO }
+        pitch { value: 1.4 unit: RATIO }
+        anchor: CASTER }
+      sound_group: LEGS
+    }
+  }
+  effects {
+    at_millis: 2600
+    use_brew { processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      use_methods: DRINK
+      technique {
+        method: ANOINT
+        strength_multiplier: 1.5
+        duration_multiplier: 1
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 0
+        residue_dose: 0
+      } }
+  }
+  presentation { display_name: "敷药" description: "以炁行药，药力循身而行。" }
+}
+definitions {
+  id: "meridian_witch:lob_seed"
+  version: 1
+  category: ATTACK
+  minimum_realm: TRUE_QI
+  movement_speed_multiplier: 0.4
+  projectile_weapon: HELD_SPLASH_BREW
+  brew_item {
+    kind_ids: "meridian_brewing:depletion"
+    kind_ids: "meridian_brewing:armor_rot"
+    kind_ids: "meridian_brewing:insect_lure"
+    kind_ids: "meridian_brewing:bitter_yellow"
+    kind_ids: "meridian_brewing:charm"
+    physical_uses: SPLASH
+    empty_off_hand: false
+  }
+  slots {
+    id: "meridians"
+    module: MERIDIAN
+    tags: "human:hand_meridian"
+    minimum_count: 1
+    maximum_count: 6
+    require_opened: true
+  }
+  slots {
+    id: "muscles"
+    module: TISSUE
+    tags: "human:arm_muscle"
+    minimum_count: 1
+    maximum_count: 16
+  }
+  cost {
+    qi {
+      slot_id: "meridians"
+      matching: ANY_ATTRIBUTE_AT_LEAST_PHASE
+      phase: GAS
+      amount { value: 0.5 unit: QI }
+      distribution: EVEN
+    }
+  }
+  phases {
+    warmup_millis: 1000
+    active_millis: 0
+    recovery_millis: 1200
+    interruptible_by_damage: true
+  }
+  cooldown_millis: 6000
+  effects {
+    at_millis: 0
+    work {
+      slot_id: "muscles"
+      force { value: 0 unit: NEWTON }
+      power { value: 20 unit: WATT }
+      duration { value: 0.4 unit: SECOND }
+    }
+  }
+  effects {
+    at_millis: 150
+    sound { sound_id: "meridian_witch:lob_seed.shake"
+      volume { value: 0.4 unit: RATIO }
+      pitch { value: 1.5 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 1000
+    sound { sound_id: "meridian_witch:lob_seed.throw"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 0.8 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 1000
+    launch_projectile {
+      projectile_weapon: HELD_SPLASH_BREW
+      speed_multiplier { value: 1 unit: RATIO }
+      damage_multiplier { value: 1 unit: RATIO }
+      critical: false
+      piercing: 0
+      spread { value: 0 unit: DEGREE }
+      multiply_draw_strength: false
+      shield_cooldown_millis: 0
+      mirror_by_hand: false
+      lob {
+        maximum_distance { value: 16 unit: METER }
+        radius { value: 0 unit: METER }
+        elevation { value: 50 unit: DEGREE }
+        maximum_speed_multiplier { value: 4 unit: RATIO }
+      }
+      brew { processor_id: "meridian_brewing:use_brew"
+        brew_kind_ids: "meridian_brewing:depletion"
+        brew_kind_ids: "meridian_brewing:armor_rot"
+        brew_kind_ids: "meridian_brewing:insect_lure"
+        brew_kind_ids: "meridian_brewing:bitter_yellow"
+        brew_kind_ids: "meridian_brewing:charm"
+        use_methods: SPLASH
+        technique {
+          method: THROW
+          strength_multiplier: 1
+          duration_multiplier: 1
+          strength_quality_steps: 0
+          maximum_quality_multiplier: 1
+          nausea_multiplier: 1
+          residue_dose: 1
+        } }
+    }
+  }
+  presentation { display_name: "掷引" description: "以炁行药，药力循身而行。" }
+}
+definitions {
+  id: "meridian_witch:fling_seed"
+  version: 1
+  category: ATTACK
+  minimum_realm: TRUE_QI
+  movement_speed_multiplier: 0.4
+  brew_item {
+    kind_ids: "meridian_brewing:depletion"
+    kind_ids: "meridian_brewing:armor_rot"
+    kind_ids: "meridian_brewing:insect_lure"
+    kind_ids: "meridian_brewing:bitter_yellow"
+    kind_ids: "meridian_brewing:charm"
+    physical_uses: SPLASH
+    empty_off_hand: false
+  }
+  slots {
+    id: "meridians"
+    module: MERIDIAN
+    tags: "human:hand_meridian"
+    minimum_count: 1
+    maximum_count: 6
+    require_opened: true
+  }
+  slots {
+    id: "muscles"
+    module: TISSUE
+    tags: "human:arm_muscle"
+    minimum_count: 1
+    maximum_count: 16
+  }
+  cost {
+    qi {
+      slot_id: "meridians"
+      matching: ANY_ATTRIBUTE_AT_LEAST_PHASE
+      phase: GAS
+      amount { value: 0.4 unit: QI }
+      distribution: EVEN
+    }
+  }
+  phases {
+    warmup_millis: 800
+    active_millis: 0
+    recovery_millis: 1000
+    interruptible_by_damage: true
+  }
+  cooldown_millis: 5000
+  effects {
+    at_millis: 0
+    work {
+      slot_id: "muscles"
+      force { value: 0 unit: NEWTON }
+      power { value: 20 unit: WATT }
+      duration { value: 0.5 unit: SECOND }
+    }
+  }
+  effects {
+    at_millis: 150
+    sound { sound_id: "meridian_witch:cork"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 1.8 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 800
+    sound { sound_id: "meridian_witch:fling_seed.splash"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 1.4 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 800
+    use_brew { processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:depletion"
+      brew_kind_ids: "meridian_brewing:armor_rot"
+      brew_kind_ids: "meridian_brewing:insect_lure"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      brew_kind_ids: "meridian_brewing:charm"
+      use_methods: SPLASH
+      technique {
+        method: FAN
+        strength_multiplier: 1
+        duration_multiplier: 1
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 1
+        residue_dose: 1
+        range { value: 3.5 unit: METER }
+        fan_angle { value: 70 unit: DEGREE }
+        maximum_targets: 4
+      } }
+  }
+  presentation { display_name: "泼引" description: "以炁行药，药力循身而行。" }
+}
+definitions {
+  id: "meridian_witch:spray_trigger"
+  version: 1
+  category: ATTACK
+  minimum_realm: TRUE_QI
+  movement_speed_multiplier: 0.4
+  brew_item {
+    kind_ids: "meridian_brewing:depletion"
+    kind_ids: "meridian_brewing:armor_rot"
+    kind_ids: "meridian_brewing:insect_lure"
+    kind_ids: "meridian_brewing:bitter_yellow"
+    kind_ids: "meridian_brewing:charm"
+    physical_uses: DRINK
+    physical_uses: SPLASH
+    empty_off_hand: false
+  }
+  slots {
+    id: "meridians"
+    module: MERIDIAN
+    tags: "human:hand_meridian"
+    minimum_count: 1
+    maximum_count: 6
+    require_opened: true
+  }
+  slots {
+    id: "muscles"
+    module: TISSUE
+    tags: "human:breathing"
+    minimum_count: 1
+    maximum_count: 16
+  }
+  cost {
+    qi {
+      slot_id: "meridians"
+      matching: ANY_ATTRIBUTE_AT_LEAST_PHASE
+      phase: GAS
+      amount { value: 0.4 unit: QI }
+      distribution: EVEN
+    }
+  }
+  phases {
+    warmup_millis: 1600
+    active_millis: 0
+    recovery_millis: 1000
+    interruptible_by_damage: true
+  }
+  cooldown_millis: 8000
+  effects {
+    at_millis: 0
+    work {
+      slot_id: "muscles"
+      force { value: 0 unit: NEWTON }
+      power { value: 40 unit: WATT }
+      duration { value: 0.6 unit: SECOND }
+    }
+  }
+  effects {
+    at_millis: 150
+    sound { sound_id: "meridian_witch:cork"
+      volume { value: 0.5 unit: RATIO }
+      pitch { value: 1.8 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 600
+    sound { sound_id: "meridian_witch:spray_trigger.sip"
+      volume { value: 0.4 unit: RATIO }
+      pitch { value: 1.4 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 1600
+    sound { sound_id: "meridian_witch:spray_trigger.spit"
+      volume { value: 0.6 unit: RATIO }
+      pitch { value: 1.1 unit: RATIO }
+      anchor: CASTER }
+  }
+  effects {
+    at_millis: 1600
+    use_brew { processor_id: "meridian_brewing:use_brew"
+      brew_kind_ids: "meridian_brewing:depletion"
+      brew_kind_ids: "meridian_brewing:armor_rot"
+      brew_kind_ids: "meridian_brewing:insect_lure"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      brew_kind_ids: "meridian_brewing:charm"
+      use_methods: DRINK
+      use_methods: SPLASH
+      technique {
+        method: MIST
+        strength_multiplier: 0.5
+        duration_multiplier: 0.5
+        strength_quality_steps: 0
+        maximum_quality_multiplier: 1
+        nausea_multiplier: 1
+        residue_dose: 0
+        range { value: 16 unit: METER }
+      } }
+  }
+  presentation { display_name: "噀催" description: "以炁行药，药力循身而行。" }
+}

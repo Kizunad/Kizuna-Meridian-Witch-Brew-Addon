@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "meridian_witch",
+  "version": "${version}",
+  "name": "行药诀",
+  "description": "以炁行药：服药、敷药、掷引、泼引、噀催",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "environment": "*",
+  "custom": {"meridian_technique:catalogs": "data/meridian_witch/technique_catalog.txtpb"},
+  "depends": {
+    "java": ">=25",
+    "minecraft": "26.2",
+    "fabricloader": ">=0.20.1",
+    "meridian_technique": "*",
+    "meridian_brewing": "*",
+    "meridian_human_host": "*"
+  }
+}

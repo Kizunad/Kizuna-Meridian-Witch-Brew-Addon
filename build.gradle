@@ -1,0 +1,22 @@
+plugins { id 'base' }
+
+allprojects {
+    group = 'dev.kizuna.meridian.witch'
+    version = '0.1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    repositories { mavenCentral() }
+    java { toolchain { languageVersion = JavaLanguageVersion.of(libs.versions.java.get()) } }
+    base.archivesName = "${rootProject.name}-${project.name}"
+    tasks.withType(JavaCompile).configureEach {
+        options.release = libs.versions.java.get().toInteger()
+        options.encoding = 'UTF-8'
+    }
+    tasks.withType(Jar).configureEach { from(rootProject.files('LICENSE', 'NOTICE')) }
+}
+
+tasks.named('assemble') { dependsOn ':shared:assemble', ':fabric:assemble' }
+tasks.named('check') { dependsOn ':verification:test' }
+tasks.register('test') { dependsOn ':verification:test' }
