@@ -4,4 +4,10 @@ dependencies {
     testImplementation libs.junit4
     testImplementation project(':shared')
 }
-test { useJUnit() }
+test {
+    useJUnit()
+    // 美术检查读 fabric 模块的贴图源文件，与正式包打进去的是同一份。
+    def fabricResources = project(':fabric').file('src/main/resources')
+    inputs.dir(fabricResources)
+    systemProperty 'witch.fabricResources', fabricResources.absolutePath
+}

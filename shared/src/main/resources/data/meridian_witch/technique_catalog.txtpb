@@ -112,7 +112,7 @@ definitions {
         residue_dose: 0
       } }
   }
-  presentation { display_name: "服药" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:imbibe" display_name: "服药" description: "以炁行药，药力循身而行。" }
 }
 definitions {
   id: "meridian_witch:anoint"
@@ -348,7 +348,7 @@ definitions {
         residue_dose: 0
       } }
   }
-  presentation { display_name: "敷药" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:anoint" display_name: "敷药" description: "以炁行药，药力循身而行。" }
 }
 definitions {
   id: "meridian_witch:lob_seed"
@@ -456,7 +456,7 @@ definitions {
         } }
     }
   }
-  presentation { display_name: "掷引" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:lob_seed" display_name: "掷引" description: "以炁行药，药力循身而行。" }
 }
 definitions {
   id: "meridian_witch:fling_seed"
@@ -549,7 +549,7 @@ definitions {
         maximum_targets: 4
       } }
   }
-  presentation { display_name: "泼引" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:fling_seed" display_name: "泼引" description: "以炁行药，药力循身而行。" }
 }
 definitions {
   id: "meridian_witch:spray_trigger"
@@ -649,5 +649,5 @@ definitions {
         range { value: 16 unit: METER }
       } }
   }
-  presentation { display_name: "噀催" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:spray_trigger" display_name: "噀催" description: "以炁行药，药力循身而行。" }
 }

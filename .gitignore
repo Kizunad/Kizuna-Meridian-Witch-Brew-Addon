@@ -2,3 +2,5 @@
 **/build/
 .idea/
 *.iml
+# CPA 生图原稿，只留本地，成品贴图在 fabric 资源目录。
+.local-art/
