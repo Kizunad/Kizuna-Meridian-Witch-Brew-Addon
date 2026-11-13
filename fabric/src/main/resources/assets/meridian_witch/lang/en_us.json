@@ -11,11 +11,17 @@
   "subtitles.meridian_witch.spray_trigger.sip": "Brew tasted",
   "subtitles.meridian_witch.spray_trigger.spit": "Brew sprayed",
   "book.meridian_witch.brew_arts": "Brew Arts",
+  "book.meridian_witch.brew_arts.note": "Hold the brew in the main hand. An interrupted cast keeps the brew.",
   "volume.meridian_witch.guard": "Nurture",
   "volume.meridian_witch.seed": "Seed",
   "technique.meridian_witch.imbibe": "Imbibe",
+  "technique.meridian_witch.imbibe.note": "drink Bitter Yellow Paste or Qi Gathering Soup: stronger, longer, with half the nausea",
   "technique.meridian_witch.anoint": "Anoint",
+  "technique.meridian_witch.anoint.note": "rub Bitter Yellow Paste on the more wounded arms or legs: stronger, no nausea; the off hand must be empty",
   "technique.meridian_witch.lob_seed": "Lob Seed",
+  "technique.meridian_witch.lob_seed.note": "lob a splash brew up to 16 blocks; everyone it touches keeps a residue",
   "technique.meridian_witch.fling_seed": "Fling Seed",
-  "technique.meridian_witch.spray_trigger": "Spray Trigger"
+  "technique.meridian_witch.fling_seed.note": "fling a splash brew at up to four targets within 3.5 blocks ahead, leaving a residue",
+  "technique.meridian_witch.spray_trigger": "Spray Trigger",
+  "technique.meridian_witch.spray_trigger.note": "spray a mouthful of the same brew: targets within 16 blocks carrying your residue are struck again at half strength"
 }

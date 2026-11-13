@@ -11,11 +11,17 @@
   "subtitles.meridian_witch.spray_trigger.sip": "含药",
   "subtitles.meridian_witch.spray_trigger.spit": "噀药催引",
   "book.meridian_witch.brew_arts": "行药诀",
+  "book.meridian_witch.brew_arts.note": "药瓶拿在主手；被打断不耗药",
   "volume.meridian_witch.guard": "养",
   "volume.meridian_witch.seed": "引",
   "technique.meridian_witch.imbibe": "服药",
+  "technique.meridian_witch.imbibe.note": "喝苦黄膏或聚气汤：药力更强、更久，反胃减半",
   "technique.meridian_witch.anoint": "敷药",
+  "technique.meridian_witch.anoint.note": "把苦黄膏抹在伤得重的两臂或两腿上，药力更强，不反胃；副手要空",
   "technique.meridian_witch.lob_seed": "掷引",
+  "technique.meridian_witch.lob_seed.note": "把喷溅型巫药高抛到 16 格内，沾上的人身上留下药引",
   "technique.meridian_witch.fling_seed": "泼引",
-  "technique.meridian_witch.spray_trigger": "噀催"
+  "technique.meridian_witch.fling_seed.note": "把喷溅型巫药泼向面前 3 格半内最多四个人，留下药引",
+  "technique.meridian_witch.spray_trigger": "噀催",
+  "technique.meridian_witch.spray_trigger.note": "含一口同种巫药喷出，16 格内带着你药引的人再发作一次，药力减半"
 }
