@@ -58,6 +58,7 @@ definitions {
     interruptible_by_damage: true
   }
   cooldown_millis: 15000
+  effects { at_millis: 0 presentation { id: "meridian_witch:witch_imbibe" duration: UNTIL_RECOVERY_END start_millis: 0 } }
   effects {
     at_millis: 300
     sound { sound_id: "meridian_witch:cork"
@@ -160,6 +161,15 @@ definitions {
     interruptible_by_damage: true
   }
   cooldown_millis: 15000
+  # 敷两臂、敷两腿两段动作由炼药在起手按伤势选组后播，收势结束停；所以这一式不写 presentation 效果。
+  effects {
+    at_millis: 0
+    use_brew {
+      processor_id: "meridian_brewing:anoint_start"
+      brew_kind_ids: "meridian_brewing:bitter_yellow"
+      use_methods: DRINK
+    }
+  }
   effects {
     at_millis: 0
     work {
@@ -401,6 +411,7 @@ definitions {
     interruptible_by_damage: true
   }
   cooldown_millis: 6000
+  effects { at_millis: 0 presentation { id: "meridian_witch:witch_lob_seed" duration: UNTIL_RECOVERY_END start_millis: 0 } }
   effects {
     at_millis: 0
     work {
@@ -508,6 +519,7 @@ definitions {
     interruptible_by_damage: true
   }
   cooldown_millis: 5000
+  effects { at_millis: 0 presentation { id: "meridian_witch:witch_fling_seed" duration: UNTIL_RECOVERY_END start_millis: 0 } }
   effects {
     at_millis: 0
     work {
@@ -602,6 +614,7 @@ definitions {
     interruptible_by_damage: true
   }
   cooldown_millis: 8000
+  effects { at_millis: 0 presentation { id: "meridian_witch:witch_spray_trigger" duration: UNTIL_RECOVERY_END start_millis: 0 } }
   effects {
     at_millis: 0
     work {
