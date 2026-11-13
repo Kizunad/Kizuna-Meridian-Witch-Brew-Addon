@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "meridian_witch_test",
+  "version": "1.0.0",
+  "name": "行药诀整合验证",
+  "environment": "server",
+  "entrypoints": {
+    "fabric-gametest": [
+      "dev.kizuna.meridian.witch.test.WitchScrollDropGameTest"
+    ]
+  },
+  "depends": {
+    "fabric-api": "*",
+    "meridian_technique": "*",
+    "meridian_witch": "*",
+    "meridian_human_host": "*",
+    "meridian_humanoid_host": "*"
+  }
+}

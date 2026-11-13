@@ -1,0 +1,46 @@
+plugins { alias(libs.plugins.fabric.loom) }
+
+description = '行药诀独立 GameTest 装配：女巫照学卷表学卷、被玩家打死时掉卷，正式包不含这里的代码。'
+def gametestRunDirectory = providers.gradleProperty('gametestRunDir').getOrElse('build/gametest')
+
+dependencies {
+    // 26.x 不混淆：直接用官方名编译，模组依赖也不经重映射。
+    minecraft libs.minecraft
+    implementation libs.fabric.loader
+    implementation libs.fabric.api
+    // 卷轴物品与掉落条件来自功法 Fabric，只取模块本身；登录假玩家夹具来自它的 testFixtures。
+    implementation('dev.kizuna.meridian.technique:fabric') { transitive = false }
+    implementation 'dev.kizuna.meridian.technique:server'
+    implementation 'dev.kizuna.meridian.technique:shared'
+    implementation testFixtures('dev.kizuna.meridian.technique:fabric')
+    // 正式数据包按安装 JAR 装入，验证发行包自己的清单发现；女巫、Human、炼药等其余模组由完整装配装入。
+    // Gradle 9 的依赖块里 project() 返回依赖对象，所以从根工程取 fabric 工程的 jar 任务。
+    localRuntime files(rootProject.project(':fabric').tasks.named('jar'))
+}
+
+loom {
+    mods {
+        meridian_witch_test { sourceSet sourceSets.main }
+    }
+    runs {
+        gametest {
+            server()
+            name '行药诀 GameTest'
+            runDir gametestRunDirectory
+            vmArg '-Dfabric-api.gametest'
+            vmArg '-Dfabric-api.gametest.report-file=build/gametest-results.xml'
+            if (providers.gradleProperty('gametestFilter').isPresent()) {
+                vmArg "-Dfabric-api.gametest.filter=${providers.gradleProperty('gametestFilter').get()}"
+            }
+        }
+    }
+}
+
+tasks.named('runGametest') {
+    doFirst {
+        // 每局从空目录新建世界：26.2 把生成设置与游戏规则拆到 data/minecraft，只删 level.dat 会退回随机地形。
+        file("${gametestRunDirectory}/world").deleteDir()
+    }
+}
+
+apply from: new File(kizunaWorkspace.directory('framework'), 'scripts/full-assembly.gradle')

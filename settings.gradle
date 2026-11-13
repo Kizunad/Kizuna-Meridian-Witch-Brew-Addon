@@ -8,7 +8,7 @@ pluginManagement {
 
 apply from: new File(rootDir.parentFile, 'Kizuna-Meridian-Mod-Framework/scripts/workspace.gradle')
 rootProject.name = 'kizuna-meridian-witch-brew-addon'
-include 'shared', 'fabric', 'verification'
+include 'shared', 'fabric', 'verification', 'gametest'
 
 kizunaWorkspace.includeSource('framework', [
     client: ['local.meridian:client', 'dev.kizuna.meridian:client'],

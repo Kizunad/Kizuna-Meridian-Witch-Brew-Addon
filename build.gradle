@@ -1,4 +1,7 @@
-plugins { id 'base' }
+plugins {
+    id 'base'
+    alias(libs.plugins.fabric.loom) apply false
+}
 
 allprojects {
     group = 'dev.kizuna.meridian.witch'
