@@ -117,7 +117,8 @@ definitions {
         residue_dose: 0
       } }
   }
-  presentation { icon_id: "meridian_witch:imbibe" display_name: "服药" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:imbibe" display_name: "服药"
+    description: "这是上卷《养》里的功夫，游炁境界就能练。右手拿瓶拔塞，它只认苦黄膏和聚气汤。连啜三口，手抚胸口把药引下去，得用两腿经脉里的 0.3 元真元。起手费 3.2 秒，再缓 1.8 秒收手，挨了打就前功尽弃，好在药还在瓶里。挪步只有平日四成快。咽下去药力升一品，本是优质的再强两成，药效长一倍半，反胃也只剩一半。记着，隔 15 秒才能再服下一回。" }
 }
 definitions {
   id: "meridian_witch:anoint"
@@ -362,7 +363,8 @@ definitions {
         residue_dose: 0
       } }
   }
-  presentation { icon_id: "meridian_witch:anoint" display_name: "敷药" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:anoint" display_name: "敷药"
+    description: "当年我在泥塘里摔伤了腿，就靠这手敷药撑回了家。也是《养》卷里的，单用能喝的苦黄膏。右手拿紧药瓶，左手必须空着去抹药。瞧瞧两臂和两腿哪处伤重就抹哪处，伤得一样就先抹两臂。两臂使劲揉，耗去两臂经脉 0.3 元真元。抹药耗 2.6 秒，缓 1.4 秒收手，步子挪得慢，挨打也会断。敷上去药力比喝强一半，丁点不反胃，可品级不涨，隔 15 秒才能再敷。" }
 }
 definitions {
   id: "meridian_witch:lob_seed"
@@ -471,7 +473,8 @@ definitions {
         } }
     }
   }
-  presentation { icon_id: "meridian_witch:lob_seed" display_name: "掷引" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:lob_seed" display_name: "掷引"
+    description: "学会了《养》卷，到了真炁境界经脉有了气态真元，才能练下卷《引》的掷引。右手拿起枯竭药水、蚀甲水、招虫水、苦黄膏或魅惑药水，举瓶高高抛出，划道大弧落在对手脚下，没对准就落你眼瞅的地上，最远 16 格。起手 1 秒出手，缓 1.2 秒收手，耗 0.5 元气态真元。身子挪得慢，挨打就断。药水沾上谁，谁身上就落下这味药的药引，隔 6 秒才能再掷一回。" }
 }
 definitions {
   id: "meridian_witch:fling_seed"
@@ -565,7 +568,8 @@ definitions {
         maximum_targets: 4
       } }
   }
-  presentation { icon_id: "meridian_witch:fling_seed" display_name: "泼引" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:fling_seed" display_name: "泼引"
+    description: "要是近处围上来人，就使这招泼引。用的也是枯竭药水、蚀甲水、招虫水、苦黄膏或魅惑药水那五样喷溅药。把药往面前一泼，泼出片宽宽的扇面，面前 3 格半以内、左右约七十度宽，最多能泼中 4 个人，但隔着遮挡可泼不着。起手要 0.8 秒，再缓 1 秒收手，耗 0.4 元气态真元。出招时脚下慢，挨打也会断。泼中的人身上全留下药引，隔 5 秒才能再泼。" }
 }
 definitions {
   id: "meridian_witch:spray_trigger"
@@ -666,5 +670,6 @@ definitions {
         range { value: 16 unit: METER }
       } }
   }
-  presentation { icon_id: "meridian_witch:spray_trigger" display_name: "噀催" description: "以炁行药，药力循身而行。" }
+  presentation { icon_id: "meridian_witch:spray_trigger" display_name: "噀催"
+    description: "这是下卷压底的功夫。嘴里含一口同一种药，不管是喝的还是喷溅的，用胸腹力气猛喷出去，嘴前起一蓬 3 格远的药雾。起手 1.6 秒，缓 1 秒收手，耗 0.4 元气态真元，挨打会断。只要在 16 格以内，哪怕隔着墙，身上带着你下的同一味药引的人药性都会再发作一次，力道和时长只剩一半，药引散得越薄发作越轻。人死了或喝了牛奶药引就没了，记着，隔 8 秒才能再催。" }
 }
