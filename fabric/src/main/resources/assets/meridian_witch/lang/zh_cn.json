@@ -23,5 +23,10 @@
   "technique.meridian_witch.fling_seed": "泼引",
   "technique.meridian_witch.fling_seed.note": "把喷溅型巫药泼向面前 3 格半内最多四个人，留下药引",
   "technique.meridian_witch.spray_trigger": "噀催",
-  "technique.meridian_witch.spray_trigger.note": "含一口同种巫药喷出，16 格内带着你药引的人再发作一次，药力减半"
+  "technique.meridian_witch.spray_trigger.note": "含一口同种巫药喷出，16 格内带着你药引的人再发作一次，药力减半",
+  "advancements.meridian_witch.cultivators.brew_arts.title": "敷引药术",
+  "advancements.meridian_witch.cultivators.brew_arts.description": "连啜揉敷以药汤膏泥自疗伤势，横泼远掷落下药引，含药喷雾更能隔墙催发其药性。",
+  "codex.intro.meridian_witch.brew_arts": "沼泽里摸索出的用药路子，既能服药敷药调理自身，亦能掷药、泼药、含药喷雾催发药性。",
+  "codex.power.meridian_witch.guard": "引真元连啜药汤以增药力，或空手揉按伤处敷药，免去反胃之苦。",
+  "codex.power.meridian_witch.seed": "扬手远掷或横泼扇面药引，口喷药雾，隔墙亦能催发敌手身上药性。"
 }

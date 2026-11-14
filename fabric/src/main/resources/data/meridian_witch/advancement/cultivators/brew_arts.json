@@ -1,0 +1,23 @@
+{
+  "parent": "meridian_progression:cultivation/cultivators",
+  "display": {
+    "icon": {
+      "id": "meridian_witch:seed_scroll"
+    },
+    "title": {
+      "translate": "advancements.meridian_witch.cultivators.brew_arts.title"
+    },
+    "description": {
+      "translate": "advancements.meridian_witch.cultivators.brew_arts.description"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "completed": {
+      "trigger": "meridian_technique:book_completed",
+      "conditions": {
+        "book": "meridian_witch:brew_arts"
+      }
+    }
+  }
+}

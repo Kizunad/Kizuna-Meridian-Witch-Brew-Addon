@@ -23,5 +23,10 @@
   "technique.meridian_witch.fling_seed": "Fling Seed",
   "technique.meridian_witch.fling_seed.note": "fling a splash brew at up to four targets within 3.5 blocks ahead, leaving a residue",
   "technique.meridian_witch.spray_trigger": "Spray Trigger",
-  "technique.meridian_witch.spray_trigger.note": "spray a mouthful of the same brew: targets within 16 blocks carrying your residue are struck again at half strength"
+  "technique.meridian_witch.spray_trigger.note": "spray a mouthful of the same brew: targets within 16 blocks carrying your residue are struck again at half strength",
+  "advancements.meridian_witch.cultivators.brew_arts.title": "Ointment and Seed",
+  "advancements.meridian_witch.cultivators.brew_arts.description": "Imbibing decoctions and anointing salves to mend flesh, flinging seeds near and far, and spraying mist to trigger the brew's hidden work through solid walls.",
+  "codex.intro.meridian_witch.brew_arts": "Remedies pieced together in murky bogs: imbibing draughts and anointing salves for the body, or lobbing, flinging, and spraying mist to trigger latent concoctions.",
+  "codex.power.meridian_witch.guard": "Sip the brew in measured draughts with True Qi to draw out its potency, or anoint wounds barehanded to spare your stomach the nausea.",
+  "codex.power.meridian_witch.seed": "Lob a seed afar or fling it in a wide fan. Spitting a spray trigger of fine mist stirs whatever remedies or banes linger in a foe, even through a wall."
 }
